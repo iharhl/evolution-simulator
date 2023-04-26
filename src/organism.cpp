@@ -1,6 +1,6 @@
-#include "creature.h"
+#include "organism.h"
 
-void Creature::initialize(uint16_t index_, Coord loc_, Genome &&genome_)
+void Organism::initOrganism(uint16_t index_, Coord loc_, Genome &&genome_)
 {
     index = index_;
     alive = true;
