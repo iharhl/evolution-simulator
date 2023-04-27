@@ -10,6 +10,7 @@ jobs:
   publish_test:
 
     runs-on: ubuntu-latest
+    needs: build_and_test
 
     steps:
     - uses: actions/checkout@v3
