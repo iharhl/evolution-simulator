@@ -22,10 +22,3 @@ jobs:
       
     - name: Run the test
       run: build/test
-
-    - name: Publishing results
-      uses: Sibz/github-status-action@v1
-      with:
-        authToken: ${{secrets.GITHUB_TOKEN}}
-        context: 'Unit Tests'
-        state: 'success'
