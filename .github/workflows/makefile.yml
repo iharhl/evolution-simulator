@@ -22,23 +22,3 @@ jobs:
       
     - name: Run the test
       run: build/test
-      
-  publish_test:
-
-    runs-on: ubuntu-latest
-    needs: build_and_test
-
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Unit tests passed
-      uses: Sibz/github-status-action@v1
-      with:
-        authToken: ${{secrets.GITHUB_TOKEN}}
-        state: 'success'
-
-    - name: Unit tests failed
-      uses: Sibz/github-status-action@v1
-      with:
-        authToken: ${{secrets.GITHUB_TOKEN}}
-        state: 'failure'
