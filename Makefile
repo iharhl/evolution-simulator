@@ -1,6 +1,6 @@
-COMPILER := g++
-OPTIONS := -std=c++20 -g -Wall
-COMPILE := $(COMPILER) $(OPTIONS)
+CXX := g++
+CXXFLAGS := -std=c++20 -g -Wall
+COMPILE := $(CXX) $(CXXFLAGS)
 BUILD_DIR := build
 SRC_DIR := src
 TEST_DIR := test
@@ -9,24 +9,48 @@ TEST_DIR := test
 
 all: ${BUILD_DIR}/main
 
-${BUILD_DIR}/main: main.cpp ${BUILD_DIR}/source1.o ${BUILD_DIR}/source2.o ${BUILD_DIR}/random.o
+${BUILD_DIR}/main: main.cpp ${BUILD_DIR}/sim.o
 	$(COMPILE) $< $(BUILD_DIR)/*.o -o $@
 
-${BUILD_DIR}/source1.o: ${SRC_DIR}/grid.cpp ${SRC_DIR}/organism.cpp ${SRC_DIR}/census.cpp build
+sourcecode: ${BUILD_DIR}/grid.o ${BUILD_DIR}/organism.o ${BUILD_DIR}/census.o ${BUILD_DIR}/random.o
+
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(COMPILE) -c $< -o $@
 
-${BUILD_DIR}/source2.o: ${SRC_DIR}/census.cpp build
-	$(COMPILE) -c $< -o $@
+# ${BUILD_DIR}/grid.o: ${SRC_DIR}/grid.cpp build
+# 	$(COMPILE) -c $< -o $@
+
+# ${BUILD_DIR}/census.o: ${SRC_DIR}/census.cpp build
+# 	$(COMPILE) -c $< -o $@
+
+# ${BUILD_DIR}/genome.o: ${SRC_DIR}/genome.cpp build
+# 	$(COMPILE) -c $< -o $@
+
+# ${BUILD_DIR}/organism.o: ${SRC_DIR}/organism.cpp build
+# 	$(COMPILE) -c $< -o $@
 
 ${BUILD_DIR}/random.o: ${SRC_DIR}/random.cpp build
 	$(COMPILE) -c $< -o $@
+
+${BUILD_DIR}/sim.o: ${SRC_DIR}/simulator.cpp sourcecode build
+	$(COMPILE) -c $< -o $@
+
+run:
+	$(BUILD_DIR)/main
 
 #====================================== FOR TESTING ===============================================#
 
 test: ${BUILD_DIR}/test
 
-${BUILD_DIR}/test: ${TEST_DIR}/test_suit.cpp ${BUILD_DIR}/random.o build
+${BUILD_DIR}/test: $(TEST_DIR)/testing.cpp ${BUILD_DIR}/unittest_grid.o ${BUILD_DIR}/unittest_random.o ${BUILD_DIR}/random.o
 	$(COMPILE) $< $(BUILD_DIR)/*.o -o $@
+
+${BUILD_DIR}/%.o: ${TEST_DIR}/%.cpp build
+	$(COMPILE) -c $< -o $@
+
+run-test:
+	$(BUILD_DIR)/test
+
 
 #====================================== UTILITIES ==================================================#
 

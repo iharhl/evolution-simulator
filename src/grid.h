@@ -18,6 +18,8 @@ public:
     bool isOccupiedAt(Coord loc) const { return at(loc) != EMPTY; }
     bool isInBounds(Coord loc) const { return loc.x >= 0 && loc.x < sizeX() && loc.y >= 0 && loc.y < sizeY(); }
 
+    Coord findEmptyLocation() const;
+
     uint16_t at(Coord loc) const { return data[loc.x][loc.y]; }
     uint16_t at(uint16_t x, uint16_t y) const { return data[x][y]; }
 

@@ -1,7 +1,4 @@
-#include <cassert>
-#include "../src/random.h"
-#include <vector>
-#include <iostream>
+#include "unittest_random.h"
 
 void TEST_RANDOM_GENERATOR()
 {
@@ -35,9 +32,4 @@ void TEST_RANDOM_GENERATOR()
     }
     printf("TEST_RANDOM_GENERATOR #2 -- Uint16 Generator -- Success!\n");
 
-}
-
-int main()
-{
-    TEST_RANDOM_GENERATOR();
 }
