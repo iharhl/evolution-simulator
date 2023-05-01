@@ -7,7 +7,7 @@ TEST_DIR := test
 
 #====================================== MAIN PROGRAM ===============================================#
 
-all: ${BUILD_DIR}/main
+all: build ${BUILD_DIR}/main
 
 ${BUILD_DIR}/main: main.cpp ${BUILD_DIR}/sim.o
 	$(COMPILE) $< $(BUILD_DIR)/*.o -o $@
@@ -17,22 +17,22 @@ sourcecode: ${BUILD_DIR}/grid.o ${BUILD_DIR}/organism.o ${BUILD_DIR}/census.o ${
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(COMPILE) -c $< -o $@
 
-# ${BUILD_DIR}/grid.o: ${SRC_DIR}/grid.cpp build
+# ${BUILD_DIR}/grid.o: ${SRC_DIR}/grid.cpp
 # 	$(COMPILE) -c $< -o $@
 
-# ${BUILD_DIR}/census.o: ${SRC_DIR}/census.cpp build
+# ${BUILD_DIR}/census.o: ${SRC_DIR}/census.cpp
 # 	$(COMPILE) -c $< -o $@
 
-# ${BUILD_DIR}/genome.o: ${SRC_DIR}/genome.cpp build
+# ${BUILD_DIR}/genome.o: ${SRC_DIR}/genome.cpp
 # 	$(COMPILE) -c $< -o $@
 
-# ${BUILD_DIR}/organism.o: ${SRC_DIR}/organism.cpp build
+# ${BUILD_DIR}/organism.o: ${SRC_DIR}/organism.cpp
 # 	$(COMPILE) -c $< -o $@
 
-${BUILD_DIR}/random.o: ${SRC_DIR}/random.cpp build
+${BUILD_DIR}/random.o: ${SRC_DIR}/random.cpp
 	$(COMPILE) -c $< -o $@
 
-${BUILD_DIR}/sim.o: ${SRC_DIR}/simulator.cpp sourcecode build
+${BUILD_DIR}/sim.o: ${SRC_DIR}/simulator.cpp sourcecode
 	$(COMPILE) -c $< -o $@
 
 run:
