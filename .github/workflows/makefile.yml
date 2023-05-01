@@ -14,11 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       
-    - name: Build the project
+    - name: Build the project files
       run: make
 
-    - name: Build the test
+    - name: Build the test files
       run: make test
       
     - name: Run the test
-      run: build/test
+      run: make run-test

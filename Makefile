@@ -42,7 +42,7 @@ run:
 
 test: ${BUILD_DIR}/test
 
-${BUILD_DIR}/test: $(TEST_DIR)/testing.cpp ${BUILD_DIR}/unittest_grid.o ${BUILD_DIR}/unittest_random.o ${BUILD_DIR}/random.o
+${BUILD_DIR}/test: $(TEST_DIR)/test_main.cpp ${BUILD_DIR}/unittest_grid.o ${BUILD_DIR}/unittest_random.o
 	$(COMPILE) $< $(BUILD_DIR)/*.o -o $@
 
 ${BUILD_DIR}/%.o: ${TEST_DIR}/%.cpp build

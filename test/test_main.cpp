@@ -3,6 +3,10 @@
 
 int main()
 {
+    // random
     TEST_RANDOM_GENERATOR();
-    TEST_GRID();
+
+    // grid
+    TEST_GRID_GEOMETRY();
+    TEST_GRID_CONTENT();
 }
