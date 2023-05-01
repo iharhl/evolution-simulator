@@ -6,7 +6,7 @@
 // #include "organism.h"
 #include "random.h"
 
-extern RandomGenerator random;
+extern RandomGenerator randomGen;
 extern Grid grid;
 extern Population population;
 void simulator();

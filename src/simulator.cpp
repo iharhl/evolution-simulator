@@ -3,7 +3,7 @@
 
 Grid grid;
 Population population;
-RandomGenerator random;
+RandomGenerator randomGen;
 
 void simulator()
 {

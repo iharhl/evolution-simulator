@@ -7,13 +7,13 @@ void TEST_RANDOM_GENERATOR()
     std::vector<uint16_t> vectUint16;
 
     // Create random generator
-    RandomGenerator rand_gen;
+    RandomGenerator randGen;
 
     // Fill the vectors
     for (int i = 0; i < 100; ++i)
     {
-        vectUint8.push_back(rand_gen.generateRandomUint8());
-        vectUint16.push_back(rand_gen.generateRandomUint16());
+        vectUint8.push_back(randGen.generateRandomUint8());
+        vectUint16.push_back(randGen.generateRandomUint16());
     }
 
     // Assertion the Uint8 generator
