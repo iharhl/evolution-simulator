@@ -10,9 +10,8 @@ struct Population
 {
 public:
     void Init(unsigned population);
-    unsigned Size() const {return organisms.size(); } 
-    void InitGenerationZero();
-
+    unsigned Size() const {return organisms.size(); }
+    Organism & operator[](uint16_t index) { return organisms[index]; }
 private:
     std::vector<Organism> organisms;
 };

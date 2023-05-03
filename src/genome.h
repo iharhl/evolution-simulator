@@ -20,7 +20,7 @@ struct Gene
 // Genome is a set of Genes
 typedef std::vector<Gene> Genome;
 
-// extern Gene makeRandomGene();
-// extern Genome makeRandomGenome();
+extern Gene makeRandomGene();
+extern Genome makeRandomGenome();
 
 #endif

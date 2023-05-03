@@ -12,7 +12,7 @@ all: build ${BUILD_DIR}/main
 ${BUILD_DIR}/main: main.cpp ${BUILD_DIR}/sim.o
 	$(COMPILE) $< $(BUILD_DIR)/*.o -o $@
 
-sourcecode: ${BUILD_DIR}/grid.o ${BUILD_DIR}/organism.o ${BUILD_DIR}/census.o ${BUILD_DIR}/random.o
+sourcecode: ${BUILD_DIR}/grid.o ${BUILD_DIR}/spawn.o ${BUILD_DIR}/organism.o ${BUILD_DIR}/census.o ${BUILD_DIR}/random.o ${BUILD_DIR}/genome_op.o
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(COMPILE) -c $< -o $@

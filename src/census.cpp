@@ -1,14 +1,6 @@
 #include "census.h"
 
-void Population::Init(unsigned population)
+void Population::Init(unsigned populationSize)
 {
-    organisms.resize(population);
-}
-
-void Population::InitGenerationZero()
-{
-    // for (unsigned index = 0; index <= Size(); ++index)
-    // {
-    //     organisms[index].Init(index, grid.findEmptyLocation(), makeRandomGenome());
-    // }
+    organisms.resize(populationSize);
 }

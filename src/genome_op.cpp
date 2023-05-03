@@ -1,26 +1,26 @@
-// #include "genome.h"
+#include "simulator.h"
 
-// Gene makeRandomGene()
-// {
-//     Gene gene;
+Gene makeRandomGene()
+{
+    Gene gene;
 
-//     gene.sourceType = random.generateRandomUint16() & 1;
-//     gene.sourceId = random.generateRandomUint16();
-//     gene.sinkType = random.generateRandomUint16() & 1;
-//     gene.sinkId = random.generateRandomUint16();
-//     gene.weight = random.generateRandomUint16();
+    gene.sourceType = randomGen.generateRandomUint16() & 1;
+    gene.sourceId = randomGen.generateRandomUint16();
+    gene.sinkType = randomGen.generateRandomUint16() & 1;
+    gene.sinkId = randomGen.generateRandomUint16();
+    gene.weight = randomGen.generateRandomUint16();
 
-//     return gene;
-// }
+    return gene;
+}
 
-// Genome makeRandomGenome()
-// {
-//     Genome genome;
+Genome makeRandomGenome()
+{
+    Genome genome;
 
-//     unsigned length = 4; // should be global constexpr
-//     for (unsigned n = 0; n < length; ++n) {
-//         genome.push_back(makeRandomGene());
-//     }
+    unsigned length = 4; // should be global constexpr
+    for (unsigned n = 0; n < length; ++n) {
+        genome.push_back(makeRandomGene());
+    }
 
-//     return genome;
-// }
+    return genome;
+}

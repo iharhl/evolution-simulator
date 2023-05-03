@@ -9,6 +9,7 @@
 extern RandomGenerator randomGen;
 extern Grid grid;
 extern Population population;
+
 void simulator();
 
 #endif

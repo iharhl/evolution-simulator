@@ -1,6 +1,8 @@
 #include <iostream>
 #include "simulator.h"
 
+extern void initGenerationZero();
+
 Grid grid;
 Population population;
 RandomGenerator randomGen;
@@ -10,8 +12,10 @@ void simulator()
     grid.init(10, 10);
     std::cout << grid.sizeX() << "\n";
 
-    population.Init(200);
+    population.Init(10);
     std::cout << population.Size() << "\n";
+
+    initGenerationZero();
 
 //     RandomGenerator random_gen;
 //     for (int n = 0; n != 10; ++n) 
