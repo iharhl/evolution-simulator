@@ -21,4 +21,5 @@ Coord Grid::findEmptyLocation() const
         if (grid.isEmptyAt(loc))
             break;
     }
+    return loc;
 };
