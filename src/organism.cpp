@@ -1,6 +1,6 @@
 #include "organism.h"
 
-void Organism::Init(uint16_t index_, Coord loc_, Genome &&genome_)
+void Organism::init(uint16_t index_, Coord loc_, Genome &&genome_)
 {
     index = index_;
     alive = true;

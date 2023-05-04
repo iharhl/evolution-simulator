@@ -1,12 +1,13 @@
 #include <iostream>
-// #include "src/grid.h"
-// #include "src/census.h"
-// #include "src/random.h"
 #include "src/simulator.h"
 #include <cstdint>
+#include "param_handler/params_reader.h"
 
 int main()
 {
     simulator();
+
+    read_params();
+
     return 0;
 }

@@ -1,6 +1,6 @@
 #include "census.h"
 
-void Population::Init(unsigned populationSize)
+void Population::init(unsigned populationSize)
 {
     organisms.resize(populationSize);
 }

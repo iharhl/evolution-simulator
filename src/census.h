@@ -9,7 +9,7 @@
 struct Population
 {
 public:
-    void Init(unsigned population);
+    void init(unsigned population);
     unsigned Size() const {return organisms.size(); }
     Organism & operator[](uint16_t index) { return organisms[index]; }
 private:
