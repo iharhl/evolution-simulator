@@ -5,13 +5,13 @@ Gene makeRandomGene()
 {
     Gene gene;
 
-    gene.sourceType = randomGen.generateRandomUint16();// & 1;
+    gene.sourceType = randomGen.generateRandomUint16() & 1;
     gene.sourceId = randomGen.generateRandomUint16();
-    gene.sinkType = randomGen.generateRandomUint16();// & 1;
+    gene.sinkType = randomGen.generateRandomUint16() & 1;
     gene.sinkId = randomGen.generateRandomUint16();
     gene.weight = randomGen.generateRandomUint16();
 
-    Logger::Debug("Make rand gene call => ", gene.sourceType, gene.sourceId, gene.sinkType, gene.sinkId, gene.weight);
+    Logger::Debug("Make rand gene call => ", (int)gene.sourceType, (int)gene.sourceId, (int)gene.sinkType, (int)gene.sinkId, (int)gene.weight);
 
     return gene;
 }

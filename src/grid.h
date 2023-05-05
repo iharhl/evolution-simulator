@@ -17,7 +17,7 @@ public:
     void set(Coord loc, uint16_t val) { data[loc.x][loc.y] = val; }
     bool isOccupiedAt(Coord loc) const { return at(loc) != EMPTY; }
     bool isInBounds(Coord loc) const { return loc.x >= 0 && loc.x < sizeX() && loc.y >= 0 && loc.y < sizeY(); }
-    bool isEmptyAt(Coord loc) const { return at(loc) == EMPTY; }
+    bool isEmptyAt(Coord loc) const { return at(loc) == EMPTY; } // first should check in bounds! memory leak here
 
     Coord findEmptyLocation() const;
 

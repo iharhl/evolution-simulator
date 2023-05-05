@@ -7,12 +7,10 @@
 
 enum LogPriority
 {
-    TracePriority,
     DebugPriority,
     InfoPriority,
     WarnPriority,
     ErrorPriority,
-    CriticalPriority
 };
 
 // Multi-threading safe Logger singleton
@@ -24,12 +22,6 @@ public:
     static void SetPriority(LogPriority new_priority)
     {
         get().priority = new_priority;
-    }
-
-    template<typename... Args>
-    static void Trace(const char* message, Args... args)
-    {
-        get().log("[TRACE]", TracePriority, message, args...);
     }
 
     template<typename... Args>
@@ -56,17 +48,13 @@ public:
         get().log("[ERROR]", ErrorPriority, message, args...);
     }
 
-    template<typename... Args>
-    static void Critical(const char* message, Args... args)
-    {
-        get().log("[CRITICAL]", CriticalPriority, message, args...);
-    }
-
 private:
     Logger()
     { 
+        // erase content of the file if exists
+        // and check if it is possible to open
         m_logfile.open("utils/log.txt", std::ofstream::out); 
-        if (!m_logfile.is_open()) { throw std::logic_error("Failed to open the log file\n"); }
+        if (!m_logfile.is_open()) { throw std::logic_error("Failed to initialize the log file\n"); }
         m_logfile.close();
     }
     ~Logger()
@@ -74,7 +62,7 @@ private:
         m_logfile.close();
     }
 
-    LogPriority priority = TracePriority;
+    LogPriority priority = DebugPriority;
     std::mutex log_mutex;
     std::ofstream m_logfile;
 
@@ -89,14 +77,14 @@ private:
     {
         if (priority <= message_priority)
         {
-            m_logfile.open("utils/log.txt", std::ofstream::app); 
+            m_logfile.open("utils/log.txt", std::ofstream::app); // failure-safe way to keep the log saved
             std::scoped_lock lock(log_mutex);
             if (m_logfile.is_open()) 
             {
                 m_logfile << priority_str << '\t' << message << ' ';
                 ((m_logfile << args << ' '), ...) << '\n'; // binary fold to write template parameter pack with spaces
             } else { 
-                throw std::logic_error("Log file not opened during log request\n"); 
+                throw std::logic_error("Log file failed to open during log request\n"); 
             } 
             m_logfile.close();
         }

@@ -8,8 +8,8 @@
 struct Params
 {
 public:
-    const unsigned GRID_SIZE_X = 0;
-    const unsigned GRID_SIZE_Y = 0;
+    unsigned GRID_SIZE_X = 20;
+    unsigned GRID_SIZE_Y = 20;
 };
 
 void read_params();

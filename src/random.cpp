@@ -6,9 +6,15 @@ RandomGenerator::RandomGenerator()
     // std::uniform_int_distribution<int> distUint8(0,0xff);
 }
 
+// uint16_t RandomGenerator::generateRandomUint16Grid()
+// {
+//     std::uniform_int_distribution<int> distUint16(0,0xffff);
+//     return (uint16_t)distUint16(rd);
+// }
+
 uint16_t RandomGenerator::generateRandomUint16()
 {
-    std::uniform_int_distribution<int> distUint16(0,10);
+    std::uniform_int_distribution<int> distUint16(0,0xffff);
     return (uint16_t)distUint16(rd);
 }
 
