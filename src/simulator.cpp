@@ -9,11 +9,16 @@ RandomGenerator randomGen;
 
 void simulator()
 {
-    grid.init(10, 10);
+
+    Logger::Debug("Simulator started", "");
+
+    grid.init(20, 20);
     std::cout << grid.sizeX() << "\n";
 
-    population.init(10);
+    population.init(3);
     std::cout << population.Size() << "\n";
 
-    // initGenerationZero(); // <-- segmentation error
+    initGenerationZero(); // <-- segmentation error
+
+    Logger::Debug("Simulator done", "");
 }

@@ -27,7 +27,7 @@ void TEST_RANDOM_GENERATOR()
     // Assertion the Uint16 generator
     for (int i = 0; i < 100; ++i)
     {
-        assert( (vectUint16.at(i) >= 0) && (vectUint8.at(i) <= 0xffff) );
+        assert( (vectUint16.at(i) >= 0) && (vectUint16.at(i) <= 0xffff) );
         // add more logic
     }
     printf("TEST_RANDOM_GENERATOR #2  >>  Uint16 Generator  >>  Success!\n");

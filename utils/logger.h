@@ -67,6 +67,7 @@ private:
     { 
         m_logfile.open("utils/log.txt", std::ofstream::out); 
         if (!m_logfile.is_open()) { throw std::logic_error("Failed to open the log file\n"); }
+        m_logfile.close();
     }
     ~Logger()
     {
@@ -84,16 +85,11 @@ private:
         return s_instance;
     }
 
-    void pp(const auto& ...args)
-    {
-        (std::cout << ... << args);
-    }
-
-    // template<typename... Args>
     void log(const char* priority_str, LogPriority message_priority, const char* message, const auto& ...args)
     {
         if (priority <= message_priority)
         {
+            m_logfile.open("utils/log.txt", std::ofstream::app); 
             std::scoped_lock lock(log_mutex);
             if (m_logfile.is_open()) 
             {
@@ -102,6 +98,7 @@ private:
             } else { 
                 throw std::logic_error("Log file not opened during log request\n"); 
             } 
+            m_logfile.close();
         }
     }
 };

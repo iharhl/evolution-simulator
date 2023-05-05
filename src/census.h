@@ -5,6 +5,7 @@
 #include "genome.h"
 #include "organism.h"
 #include "grid.h"
+#include "../utils/logger.h"
 
 struct Population
 {

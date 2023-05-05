@@ -56,3 +56,4 @@ build:
 
 clean:
 	rm -rf $(BUILD_DIR)/*
+	rm -rf $(UTILS_DIR)/log.txt
