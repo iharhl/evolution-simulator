@@ -15,5 +15,5 @@ void simulator()
     population.init(10);
     std::cout << population.Size() << "\n";
 
-    // initGenerationZero(); <-- segmentation error
+    // initGenerationZero(); // <-- segmentation error
 }

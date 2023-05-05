@@ -5,7 +5,7 @@ void read_params()
     std::ifstream params;
     std::string s1;
 
-    params.open("param_handler/params.txt", std::fstream::in);
+    params.open("utils/params.txt", std::fstream::in);
 
     if (params.is_open())
     {

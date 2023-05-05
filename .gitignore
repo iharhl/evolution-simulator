@@ -1,3 +1,4 @@
 build
 DS_S*
 .vscode
+utils/log.txt

@@ -4,7 +4,7 @@ COMPILE := $(CXX) $(CXXFLAGS)
 BUILD_DIR := build
 SRC_DIR := src
 TEST_DIR := test
-PARAM_DIR := param_handler
+UTILS_DIR := utils
 
 #====================================== MAIN PROGRAM ===============================================#
 
@@ -22,7 +22,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(COMPILE) -c $< -o $@
 
 # parameters handler
-$(BUILD_DIR)/%.o: $(PARAM_DIR)/%.cpp
+$(BUILD_DIR)/%.o: $(UTILS_DIR)/%.cpp
 	$(COMPILE) -c $< -o $@
 
 $(BUILD_DIR)/random.o: ${SRC_DIR}/random.cpp
