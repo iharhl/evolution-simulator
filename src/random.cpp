@@ -14,7 +14,7 @@ RandomGenerator::RandomGenerator()
 
 uint16_t RandomGenerator::generateRandomUint16()
 {
-    std::uniform_int_distribution<int> distUint16(0,0xffff);
+    std::uniform_int_distribution<int> distUint16(0,15);
     return (uint16_t)distUint16(rd);
 }
 

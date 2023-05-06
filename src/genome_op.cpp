@@ -11,7 +11,7 @@ Gene makeRandomGene()
     gene.sinkId = randomGen.generateRandomUint16();
     gene.weight = randomGen.generateRandomUint16();
 
-    Logger::Debug("Make rand gene call => ", (int)gene.sourceType, (int)gene.sourceId, (int)gene.sinkType, (int)gene.sinkId, (int)gene.weight);
+    Logger::Debug("makeRandomGene", (int)gene.sourceType, (int)gene.sourceId, (int)gene.sinkType, (int)gene.sinkId, (int)gene.weight);
 
     return gene;
 }

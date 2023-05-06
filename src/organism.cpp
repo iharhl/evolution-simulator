@@ -8,7 +8,7 @@ void Organism::init(uint16_t index_, Coord loc_, Genome &&genome_)
     age = 0;
     coord = loc_;
 
-    Logger::Debug("Organism init => ", index, "at coords => ", coord.x, coord.y);
+    Logger::Debug("Organism::init", index, "at coords", coord.x, coord.y);
 
     genome = std::move(genome_);
     // createBrainFromGenome();

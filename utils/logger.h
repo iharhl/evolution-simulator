@@ -1,6 +1,7 @@
 #ifndef LOGGER_H_
 #define LOGGER_H_
 
+
 #include <iostream>
 #include <mutex>
 #include <fstream>
@@ -49,6 +50,10 @@ public:
     }
 
 private:
+    LogPriority priority = DebugPriority;
+    std::mutex log_mutex;
+    std::ofstream m_logfile;
+
     Logger()
     { 
         // erase content of the file if exists
@@ -59,12 +64,8 @@ private:
     }
     ~Logger()
     {
-        m_logfile.close();
+        if (m_logfile.is_open()) { m_logfile.close(); }
     }
-
-    LogPriority priority = DebugPriority;
-    std::mutex log_mutex;
-    std::ofstream m_logfile;
 
     // Only allowed to instanciate withit itself
     static Logger& get()
