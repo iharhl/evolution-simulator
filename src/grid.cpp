@@ -19,10 +19,8 @@ Coord Grid::findEmptyLocation() const
 
     while(true)
     {
-        // loc.x = randomGen.generateRandomUint16(0, grid.sizeX()-1);
-        loc.x = randomGen.generateRandomUint16();
-        // loc.y = randomGen.generateRandomUint16(0, grid.sizeY()-1);
-        loc.y = randomGen.generateRandomUint16();
+        loc.x = randomGen.generateRandomUint16_Grid();
+        loc.y = randomGen.generateRandomUint16_Grid();
 
         Logger::Debug("Grid::findEmptyLocation", loc.x, loc.y);
 

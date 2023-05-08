@@ -9,6 +9,7 @@ struct RandomGenerator
 public:
     RandomGenerator();
     uint16_t generateRandomUint16();
+    uint16_t generateRandomUint16_Grid();
     uint8_t generateRandomUint8();
 private:
     std::random_device rd;

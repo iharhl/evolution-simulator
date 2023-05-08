@@ -3,22 +3,36 @@
 
 #include <cstdint>
 #include <vector>
+#include <tuple>
 
-constexpr uint8_t SENSOR = 1;  // always a source
-constexpr uint8_t ACTION = 1;  // always a sink
-constexpr uint8_t NEURON = 0;  // can be either a source or sink
+constexpr uint16_t SENSOR = 1;  // always a source
+constexpr uint16_t ACTION = 1;  // always a sink
+// constexpr uint16_t NEURON = 0;  // can be either a source or sink
 
+
+// Gene is the set of numbers representing
+// its I/Os
 struct Gene
 {
-    uint8_t sourceType;
-    uint8_t sourceId;
-    uint8_t sinkType;
-    uint8_t sinkId;
-    uint8_t weight;
+    // uint16_t sourceType;
+    uint16_t sourceId;
+    // uint16_t sinkType;
+    uint16_t sinkId;
+    int16_t weight;
 };
 
 // Genome is a set of Genes
 typedef std::vector<Gene> Genome;
+
+// System is the set of sensors and corresponding actuator
+// aka the whole sensing-actuating mechanism
+struct System
+{
+    float action; // output value
+    std::vector<std::tuple<uint16_t, int16_t>> sensorEffect; // sensor id and its weight
+    uint16_t actuator; // actuator id
+
+};
 
 extern Gene makeRandomGene();
 extern Genome makeRandomGenome();

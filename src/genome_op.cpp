@@ -5,13 +5,13 @@ Gene makeRandomGene()
 {
     Gene gene;
 
-    gene.sourceType = randomGen.generateRandomUint16() & 1;
+    // gene.sourceType = randomGen.generateRandomUint16() & 1; // for now always sensor
     gene.sourceId = randomGen.generateRandomUint16();
-    gene.sinkType = randomGen.generateRandomUint16() & 1;
+    // gene.sinkType = randomGen.generateRandomUint16() & 1; // for now always actuator
     gene.sinkId = randomGen.generateRandomUint16();
-    gene.weight = randomGen.generateRandomUint16();
+    gene.weight = (int16_t)(randomGen.generateRandomUint16() - 0x8000);
 
-    Logger::Debug("makeRandomGene", (int)gene.sourceType, (int)gene.sourceId, (int)gene.sinkType, (int)gene.sinkId, (int)gene.weight);
+    Logger::Debug("makeRandomGene", (int)gene.sourceId, (int)gene.sinkId, (int)gene.weight);
 
     return gene;
 }
@@ -26,4 +26,15 @@ Genome makeRandomGenome()
     }
 
     return genome;
+}
+
+void Organism::decodeGenome()
+{
+    // System syst;
+
+    // for (auto& gene : genome)
+    // {
+    //     syst.actuator = gene.sourceId;
+    //     syst.sensorEffect;
+    // }
 }

@@ -17,7 +17,7 @@ struct Organism
 
     // float getSensor(Sensor, unsigned simStep) const;
     void init(uint16_t index, Coord loc, Genome &&genome);
-    // void createWiringFromGenome(); // creates .nnet member from .genome member
+    void decodeGenome();
     // void printNeuralNet() const;
     // void printIGraphEdgeList() const;
     // void printGenome() const;
