@@ -3,7 +3,7 @@
 
 #include <cstdint>
 #include <vector>
-#include <tuple>
+// #include <tuple>
 
 constexpr uint16_t SENSOR = 1;  // always a source
 constexpr uint16_t ACTION = 1;  // always a sink
@@ -26,15 +26,16 @@ typedef std::vector<Gene> Genome;
 
 // System is the set of sensors and corresponding actuator
 // aka the whole sensing-actuating mechanism
-struct System
-{
-    float action; // output value
-    std::vector<std::tuple<uint16_t, int16_t>> sensorEffect; // sensor id and its weight
-    uint16_t actuator; // actuator id
+// struct System
+// {
+//     float action; // output value
+//     std::vector<std::tuple<uint16_t, int16_t>> sensorEffect; // sensor id and its weight
+//     uint16_t actuator; // actuator id
 
-};
+// };
 
-extern Gene makeRandomGene();
-extern Genome makeRandomGenome();
+Gene makeRandomGene();
+Genome makeRandomGenome();
+Genome inheritGenome();
 
 #endif

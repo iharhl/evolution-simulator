@@ -5,18 +5,11 @@ Grid grid;
 Population population;
 RandomGenerator randomGen;
 
-// temp global variables
+// FIX temp global variables
 unsigned generation_count = 0;
-unsigned maxGenerations = 2;
+unsigned maxGenerations = 3;
 unsigned stepsPerGeneration = 5;
 unsigned populationSize = 3;
-
-
-void simStepOneOrganism(Organism& organism, unsigned simStep)
-{
-    ++organism.age;
-    // calc and perform action
-}
 
 void simulator()
 {
@@ -26,23 +19,33 @@ void simulator()
     grid.init(20, 20);
     population.init(populationSize);
 
-    initGenerationZero();
+    population.spawnGenerationZero(grid);
 
-    // while (generation_count < maxGenerations)
-    // {
-    //     for (unsigned simStep = 0; simStep < stepsPerGeneration; ++simStep)
-    //     {
-    //         for (unsigned organismId = 0; organismId < populationSize; ++organismId)
-    //         {
-    //             if (population[organismId].alive)
-    //             {
-    //                 simStepOneOrganism(population[organismId], simStep);
-    //             }
-    //         }
-    //     }
-    //     // end of the generation
-    //     // spawn new generation from the old one
-    // }
+    while (generation_count < maxGenerations)
+    {
+        for (unsigned simStep = 0; simStep < stepsPerGeneration; ++simStep)
+        {
+            for (unsigned organismId = 0; organismId < populationSize; ++organismId)
+            {
+                if (population[organismId].alive)
+                {
+                    simStepOneOrganism(population[organismId], simStep);
+                }
+            }
+        }
+        Logger::Debug("Generation", generation_count+1);
+
+        // spawn new generation from the old one
+        population.spawnNewGeneration(grid);
+
+        generation_count++;
+    }
 
     Logger::Debug("Simulator done", "");
+}
+
+void simStepOneOrganism(Organism& organism, unsigned simStep)
+{
+    ++organism.age;
+    // calc and perform action
 }

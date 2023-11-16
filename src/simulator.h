@@ -1,7 +1,7 @@
 #ifndef SIMULATOR_H_
 #define SIMULATOR_H_
 
-#include "census.h"
+#include "pops.h"
 #include "grid.h"
 #include "random.h"
 
@@ -11,7 +11,5 @@ extern Population population;
 
 void simulator();
 void simStepOneOrganism(Organism& organism, unsigned simStep);
-
-extern void initGenerationZero();
 
 #endif

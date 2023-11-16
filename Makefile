@@ -13,7 +13,7 @@ all: build $(BUILD_DIR)/main
 $(BUILD_DIR)/main: main.cpp $(BUILD_DIR)/sim.o params
 	$(COMPILE) $< $(BUILD_DIR)/*.o -o $@
 
-sourcecode: $(BUILD_DIR)/grid.o $(BUILD_DIR)/spawn.o $(BUILD_DIR)/organism.o $(BUILD_DIR)/census.o $(BUILD_DIR)/random.o $(BUILD_DIR)/genome_op.o
+sourcecode: $(BUILD_DIR)/grid.o $(BUILD_DIR)/organism.o $(BUILD_DIR)/pops.o $(BUILD_DIR)/random.o $(BUILD_DIR)/genome.o
 
 params: $(BUILD_DIR)/params_reader.o
 
@@ -53,6 +53,15 @@ run-test:
 # Make the build directory if it doesn't exist
 build:
 	mkdir -p $(BUILD_DIR)
+
+check:
+	cppcheck --language=c++ --std=c++20 \
+	--enable=all \
+	--suppress=unusedFunction \
+	--suppress=missingIncludeSystem \
+	--suppress=unusedStructMember \
+	--error-exitcode=1 \
+	$(SRC_DIR)/*
 
 clean:
 	rm -rf $(BUILD_DIR)/*

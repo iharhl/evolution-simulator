@@ -1,4 +1,5 @@
 #include "simulator.h"
+#include "genome.h"
 #include "../utils/logger.h"
 
 Gene makeRandomGene()
@@ -28,13 +29,8 @@ Genome makeRandomGenome()
     return genome;
 }
 
-void Organism::decodeGenome()
+Genome inheritGenome()
 {
-    // System syst;
-
-    // for (auto& gene : genome)
-    // {
-    //     syst.actuator = gene.sourceId;
-    //     syst.sensorEffect;
-    // }
+    // FIX
+    return makeRandomGenome();
 }
