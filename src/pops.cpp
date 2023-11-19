@@ -1,34 +1,41 @@
 #include "pops.h"
 
-void Population::init(unsigned populationSize)
+/* OLD -> NOW A PART OF CONSTRUCTOR */
+//
+// void Population::init(unsigned populationSize)
+// {
+//     Logger::Debug("Population::init call with", populationSize);
+
+//     organisms.resize(populationSize);
+
+//     Logger::Debug("Population::init size after call", Size());
+// }
+
+Population::Population(const unsigned size, const Grid& grid) : organisms()
 {
-    Logger::Debug("Population::init call with", populationSize);
-
-    organisms.resize(populationSize);
-
-    Logger::Debug("Population::init size after call", Size());
+    organisms.reserve(size);
+    for (unsigned i = 0; i < size; ++i)
+    {
+        organisms.push_back(Organism(i, grid.findEmptyLocation(), makeRandomGenome()));
+        Logger::Debug("SpawnGenerationZero", "organism", i);
+    }
 }
 
-/* */
-// void initGenerationZero(Population& population, Grid& grid)
+/* OLD -> NOW A PART OF CONSTRUCTOR */
+//
+// void Population::spawnGenerationZero(const Grid& grid)
 // {
-//     for (unsigned index = 0; index < population.Size(); ++index)
+//     for (unsigned index = 0; index < organisms.size(); ++index)
 //     {
-//         population[index].init(index, grid.findEmptyLocation(), makeRandomGenome());
+//         organisms[index].init(index, grid.findEmptyLocation(), makeRandomGenome());
 //         Logger::Debug("initGenerationZero", "one organism init");
 //     }
-
 //     Logger::Debug("initGenerationZero", "done");
 // }
 
-void Population::spawnGenerationZero(const Grid& grid)
+Population::~Population()
 {
-    for (unsigned index = 0; index < organisms.size(); ++index)
-    {
-        // organisms[index].init(index, grid.findEmptyLocation(), makeRandomGenome());
-        Logger::Debug("initGenerationZero", "one organism init");
-    }
-    Logger::Debug("initGenerationZero", "done");
+    
 }
 
 void Population::spawnNewGeneration(const Grid& grid)
@@ -36,7 +43,7 @@ void Population::spawnNewGeneration(const Grid& grid)
     for (unsigned index = 0; index < organisms.size(); ++index)
     {
         // organisms[index].init(index, grid.findEmptyLocation(), makeRandomGenome());
-        Logger::Debug("initNewGeneration", "one organism init");
+        Logger::Debug("SpawnNewGeneration", "organism", index);
     }
     Logger::Debug("initNewGeneration", "done");    
 }

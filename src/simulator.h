@@ -7,7 +7,7 @@
 
 extern RandomGenerator randomGen;
 // extern Grid grid;
-extern Population population;
+// extern Population population;
 
 void simulator();
 void simStepOneOrganism(Organism& organism, unsigned simStep);

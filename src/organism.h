@@ -8,7 +8,7 @@ class Organism
 {
 public:
     // float getSensor(Sensor, unsigned simStep) const;
-    Organism(uint16_t index_, Coord loc_, Genome &&genome_);
+    Organism(const uint16_t index_, const Coord loc_, Genome &&genome_);
     ~Organism();
     // void init(uint16_t index, Coord loc, Genome &&genome);
     void decodeGenome();

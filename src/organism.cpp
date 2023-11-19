@@ -1,7 +1,7 @@
 #include "organism.h"
 #include "../utils/logger.h"
 
-Organism::Organism(uint16_t index_, Coord loc_, Genome &&genome_)
+Organism::Organism(const uint16_t index_, const Coord loc_, Genome &&genome_)
     :
     index(index_),
     alive(true),
@@ -25,6 +25,11 @@ Organism::Organism(uint16_t index_, Coord loc_, Genome &&genome_)
 //     genome = std::move(genome_);
 //     // createBrainFromGenome();
 // };
+
+Organism::~Organism()
+{
+
+}
 
 bool Organism::isAlive() const
 {

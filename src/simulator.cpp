@@ -2,7 +2,7 @@
 #include "simulator.h"
 
 // Grid grid;
-Population population;
+// Population population;
 RandomGenerator randomGen;
 
 // FIX temp global variables
@@ -18,9 +18,9 @@ void simulator()
 
     Grid grid(20, 20);
     // grid.init(20, 20);
-    population.init(populationSize);
-
-    population.spawnGenerationZero(grid);
+    // population.init(populationSize);
+    // population.spawnGenerationZero(grid);
+    Population population(3, grid);
 
     while (generation_count < maxGenerations)
     {
