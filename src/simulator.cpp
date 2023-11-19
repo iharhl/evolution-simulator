@@ -1,7 +1,7 @@
 #include <iostream>
 #include "simulator.h"
 
-Grid grid;
+// Grid grid;
 Population population;
 RandomGenerator randomGen;
 
@@ -16,7 +16,8 @@ void simulator()
 
     Logger::Debug("Simulator started", "");
 
-    grid.init(20, 20);
+    Grid grid(20, 20);
+    // grid.init(20, 20);
     population.init(populationSize);
 
     population.spawnGenerationZero(grid);
@@ -27,7 +28,7 @@ void simulator()
         {
             for (unsigned organismId = 0; organismId < populationSize; ++organismId)
             {
-                if (population[organismId].alive)
+                if (population[organismId].isAlive())
                 {
                     simStepOneOrganism(population[organismId], simStep);
                 }
@@ -46,6 +47,8 @@ void simulator()
 
 void simStepOneOrganism(Organism& organism, unsigned simStep)
 {
-    ++organism.age;
-    // calc and perform action
+    // Increment age of an ogranism
+    ++organism;
+
+    // Calc and perform actions...
 }

@@ -7,16 +7,17 @@
 #include "grid.h"
 #include "../utils/logger.h"
 
-struct Population
+class Population
 {
 public:
     void init(unsigned population);
     void spawnGenerationZero(const Grid& grid);
     void spawnNewGeneration(const Grid& grid);
+    bool isOrganismAlive(const unsigned index) const;
     unsigned Size() const {return organisms.size(); }
-    Organism & operator[](uint16_t index) { return organisms[index]; }
+    Organism& operator[](uint16_t index) { return organisms[index]; }
 private:
-    std::vector<Organism> organisms;
+    std::vector<Organism> organisms; // TODO: fix the intialization to be generation zero!!
 };
 
 // void initGenerationZero(Population& population, Grid& grid);

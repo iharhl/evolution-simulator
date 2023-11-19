@@ -4,7 +4,7 @@
 #include <cstdint>
 #include <random>
 
-struct RandomGenerator
+class RandomGenerator
 {
 public:
     RandomGenerator();

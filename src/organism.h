@@ -4,8 +4,22 @@
 #include "datatypes.h"
 #include "genome.h"
 
-struct Organism
+class Organism
 {
+public:
+    // float getSensor(Sensor, unsigned simStep) const;
+    Organism(uint16_t index_, Coord loc_, Genome &&genome_);
+    ~Organism();
+    // void init(uint16_t index, Coord loc, Genome &&genome);
+    void decodeGenome();
+    // void printNeuralNet() const;
+    // void printIGraphEdgeList() const;
+    // void printGenome() const;
+    bool isAlive() const;
+    unsigned getAge() const { return age; }
+    Organism& operator++() { age++; return *this;}
+
+private:
     uint16_t index;
     bool alive;
     unsigned age;
@@ -14,13 +28,6 @@ struct Organism
     // NeuralNet nnet; // derived from .genome
 
     // std::array<float, Action::NUM_ACTIONS> feedForward(unsigned simStep); // reads sensors, returns actions
-
-    // float getSensor(Sensor, unsigned simStep) const;
-    void init(uint16_t index, Coord loc, Genome &&genome);
-    void decodeGenome();
-    // void printNeuralNet() const;
-    // void printIGraphEdgeList() const;
-    // void printGenome() const;
 
 };
 

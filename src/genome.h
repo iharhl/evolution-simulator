@@ -12,14 +12,14 @@ constexpr uint16_t ACTION = 1;  // always a sink
 
 // Gene is the set of numbers representing
 // its I/Os
-struct Gene
+typedef struct
 {
     // uint16_t sourceType;
     uint16_t sourceId;
     // uint16_t sinkType;
     uint16_t sinkId;
     int16_t weight;
-};
+} Gene;
 
 // Genome is a set of Genes
 typedef std::vector<Gene> Genome;

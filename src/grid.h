@@ -7,10 +7,12 @@
 const uint16_t EMPTY = 0;
 // const uint16_t BARRIER = 0xffff;
 
-struct Grid
+class Grid
 {
 public:
-    void init(uint16_t sizeX, uint16_t sizeY);
+    Grid(uint16_t sizeX, uint16_t sizeY);
+    ~Grid();
+    // void init(uint16_t sizeX, uint16_t sizeY);
     uint16_t sizeX() const { return data.size(); }
     uint16_t sizeY() const { return data[0].size(); }
     void set(uint16_t x, uint16_t y, uint16_t val) { data[x][y] = val; }

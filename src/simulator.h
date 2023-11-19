@@ -6,7 +6,7 @@
 #include "random.h"
 
 extern RandomGenerator randomGen;
-extern Grid grid;
+// extern Grid grid;
 extern Population population;
 
 void simulator();

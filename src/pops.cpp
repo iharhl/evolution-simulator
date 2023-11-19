@@ -25,7 +25,7 @@ void Population::spawnGenerationZero(const Grid& grid)
 {
     for (unsigned index = 0; index < organisms.size(); ++index)
     {
-        organisms[index].init(index, grid.findEmptyLocation(), makeRandomGenome());
+        // organisms[index].init(index, grid.findEmptyLocation(), makeRandomGenome());
         Logger::Debug("initGenerationZero", "one organism init");
     }
     Logger::Debug("initGenerationZero", "done");
@@ -35,8 +35,13 @@ void Population::spawnNewGeneration(const Grid& grid)
 {
     for (unsigned index = 0; index < organisms.size(); ++index)
     {
-        organisms[index].init(index, grid.findEmptyLocation(), makeRandomGenome());
+        // organisms[index].init(index, grid.findEmptyLocation(), makeRandomGenome());
         Logger::Debug("initNewGeneration", "one organism init");
     }
     Logger::Debug("initNewGeneration", "done");    
+}
+
+bool Population::isOrganismAlive(const unsigned index) const
+{
+    return organisms[index].isAlive();
 }
