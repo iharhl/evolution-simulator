@@ -12,7 +12,6 @@ class Population
 public:
     Population(const unsigned size, const Grid& grid);
     ~Population();
-    // void init(unsigned population);
     void spawnGenerationZero(const Grid& grid);
     void spawnNewGeneration(const Grid& grid);
     bool isOrganismAlive(const unsigned index) const;
@@ -21,7 +20,5 @@ public:
 private:
     std::vector<Organism> organisms;
 };
-
-// void initGenerationZero(Population& population, Grid& grid);
 
 #endif

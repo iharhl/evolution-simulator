@@ -2,7 +2,7 @@
 #define TEST_RANDOM_H_
 
 #include <cassert>
-#include "../src/random.h"
+#include "../src/random_gen.h"
 #include <vector>
 #include <iostream>
 

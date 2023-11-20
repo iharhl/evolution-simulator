@@ -12,7 +12,6 @@ class Grid
 public:
     Grid(uint16_t sizeX, uint16_t sizeY);
     ~Grid();
-    // void init(uint16_t sizeX, uint16_t sizeY);
     uint16_t sizeX() const { return data.size(); }
     uint16_t sizeY() const { return data[0].size(); }
     void set(uint16_t x, uint16_t y, uint16_t val) { data[x][y] = val; }
@@ -27,7 +26,7 @@ public:
     uint16_t at(uint16_t x, uint16_t y) const { return data[x][y]; }
 
 private:
-    vector2d data;
+    vector2d data;    
 };
 
 #endif

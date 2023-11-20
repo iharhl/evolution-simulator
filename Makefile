@@ -13,7 +13,7 @@ all: build $(BUILD_DIR)/main
 $(BUILD_DIR)/main: main.cpp $(BUILD_DIR)/sim.o params
 	$(COMPILE) $< $(BUILD_DIR)/*.o -o $@
 
-sourcecode: $(BUILD_DIR)/grid.o $(BUILD_DIR)/organism.o $(BUILD_DIR)/pops.o $(BUILD_DIR)/random.o $(BUILD_DIR)/genome.o
+sourcecode: $(BUILD_DIR)/grid.o $(BUILD_DIR)/organism.o $(BUILD_DIR)/pops.o $(BUILD_DIR)/random_gen.o $(BUILD_DIR)/genome.o
 
 params: $(BUILD_DIR)/params_reader.o
 
@@ -25,7 +25,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 $(BUILD_DIR)/%.o: $(UTILS_DIR)/%.cpp
 	$(COMPILE) -c $< -o $@
 
-$(BUILD_DIR)/random.o: ${SRC_DIR}/random.cpp
+$(BUILD_DIR)/random_gen.o: ${SRC_DIR}/random_gen.cpp
 	$(COMPILE) -c $< -o $@
 
 $(BUILD_DIR)/sim.o: ${SRC_DIR}/simulator.cpp sourcecode

@@ -3,13 +3,11 @@
 
 #include "pops.h"
 #include "grid.h"
-#include "random.h"
+#include "random_gen.h"
 
 extern RandomGenerator randomGen;
-// extern Grid grid;
-// extern Population population;
 
 void simulator();
-void simStepOneOrganism(Organism& organism, unsigned simStep);
+void simOneStep(Organism& organism, unsigned simStep);
 
 #endif
